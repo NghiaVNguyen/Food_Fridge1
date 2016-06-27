@@ -1,9 +1,3 @@
-
-# *********
-# Github commit test DELETE THIS AFTER test
-# **************
-
-
 from __future__ import unicode_literals
 import bcrypt
 import re
@@ -54,8 +48,6 @@ class UserManager (models.Manager):
 		print self.filter(email=email)
 
 		return(True, self.filter(email=email)[0])
-
-
 
 
 class User(models.Model):
