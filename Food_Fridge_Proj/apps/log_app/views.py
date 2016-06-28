@@ -34,6 +34,8 @@ def register(request):
 		print context
 		## make decisions based on user_tuple[0]
 		if user_tuple[0]:
+			request.session['email'] = user_tuple[1].email
+			request.session['name'] = user_tuple[1].first_name + " " + user_tuple[1].last_name
 			print "true"
 			return render(request, "success.html")
 			
