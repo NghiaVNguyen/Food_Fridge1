@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'apps.log_app',
     'apps.API',
+    'apps.fridge_app',
 ]
 
 MIDDLEWARE_CLASSES = [

@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.core.urlresolvers import reverse
 from .models import User
 
 # Create your views here.
@@ -15,15 +16,13 @@ def login(request):
 			request.session['email'] = user_tuple[1].email
 			request.session['name'] = user_tuple[1].first_name + " " + user_tuple[1].last_name
 			#return render a new page??
-			return render(request, "success.html")
+			return redirect(reverse('home'))
 
 		else:
 			print "Does not work"
 			return redirect('/')
 
 	#Do some stuff if user_tuple[0] is false redirect('/) and set error message. DO ON OWN
-
-
 
 def register(request):
 	if request.method == 'POST':
@@ -40,7 +39,7 @@ def register(request):
 			return render(request, "success.html")
 			
 		else:
-			print "gfalse"
+			print "false"
 			return render(request, "index.html", context)
 			
 	else:
