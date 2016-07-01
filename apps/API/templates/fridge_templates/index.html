@@ -21,7 +21,7 @@
 
 			$('#fadeandscale').popup({
 		        pagecontainer: '.container',
-		        transition: 'all 0.3s'
+		        transition: 'all 0.5s'
 		    });
 
 
@@ -30,7 +30,7 @@
 			function whatever(food){
 			$.ajax(
 			{
-			    url: 'https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients?fillIngredients=false&ingredients=' + food + '&limitLicense=false&number=4&ranking=1', // The URL to the API. You can get this by clicking on "Show CURL example" from an API profile
+			    url: 'https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients?fillIngredients=false&ingredients=' + food + '&limitLicense=false&number=3&ranking=1', // The URL to the API. You can get this by clicking on "Show CURL example" from an API profile
 			    type: 'GET', // The HTTP Method
 			    data: {}, // Additional parameters here
 			    dataType: 'json',
@@ -161,13 +161,16 @@
 		<form action="{% url 'addfood' %}" method='POST' class='food'>
 			{% csrf_token %}
 			<input type="text" name="name">
+			<div class ='storage'>
 			{% for foo in food %}
-			<p class='foodfridge'><a href="{% url 'append' id=foo.id %}">{{ foo.food_id.name }}</a><a href="{% url 'remove' id=foo.id %}">Remove</a></p>
+			<p class='foodfridge'><a href="{% url 'append' id=foo.food_id.id %}">{{ foo.food_id.name }}</a><a href="{% url 'remove' id=foo.id %}">Remove</a></p>
 			{% endfor %}
-			<input type="submit" value="Add Ingredients">
+			</div>
+			<input type="submit" value="Add Ingredients" >
 		</form>
+		<p class="logofflink"><a href="{% url 'logoff' %}" >Log Off</a></p>
 	</div>
-
+<!-- class="btn btn-default" -->
 
 	
 

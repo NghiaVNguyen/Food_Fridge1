@@ -38,3 +38,7 @@ def append(request, id):
 	}
 	print save
 	return render(request, "fridge_templates/index.html", context)
+
+def logoff(request):
+	request.session.clear()
+	return redirect(reverse('home'))

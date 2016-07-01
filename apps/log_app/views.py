@@ -17,6 +17,9 @@ def login(request):
 		else:
 			print "does not work"
 			return render(request, 'index.html', context)
+
+
+
 def register(request):
 	if request.method == 'POST':
 		user_tuple = User.userManager.register(request.POST['first_name'], request.POST['last_name'], request.POST['email'], request.POST['password'], request.POST['confirm_password'])
